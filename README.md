@@ -57,6 +57,13 @@ The driver uses signature-based pattern matching to locate kernel structures acr
 - Should only be used in controlled environments
 - Intended for research and educational purposes only
 
+## Installation
+
+1. Compile the driver using Windows Driver Kit (WDK)
+2. Sign the driver or enable test signing mode
+3. Install using `sc create` or driver loading utilities
+4. Configure target drivers in the source code before compilation
+
 ## Configuration
 
 Modify the target driver list in `main.c`:
@@ -89,5 +96,7 @@ Requirements:
 
 Build steps:
 ```cmd
-msbuild DriverCleaner.sln /p:Configuration=Release /p:Platform=x64
+msbuild KernelDriverCleaner.sln /p:Configuration=Release /p:Platform=x64
 ```
+
+## License
