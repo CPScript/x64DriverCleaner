@@ -1,6 +1,6 @@
 # x64 Driver Cleaner
 
-A Windows kernel driver designed to remove traces of previously loaded drivers from various Windows kernel data structures. This tool operates at the kernel level to clean driver artifacts that remain in memory after driver unloading.
+> This tool operates at the kernel level to clean driver artifacts that remain in memory after driver unloading.
 
 ## What This Does
 
@@ -100,3 +100,5 @@ msbuild KernelDriverCleaner.sln /p:Configuration=Release /p:Platform=x64
 ```
 
 ## License
+
+**CC0 1.0 Universal**
