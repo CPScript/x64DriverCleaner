@@ -1,0 +1,52 @@
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = System
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %ManufacturerName%
+CatalogFile = KernelCleaner.cat
+DriverVer   = 01/01/2024,1.0.0.0
+PnpLockdown = 1
+
+[DestinationDirs]
+DefaultDestDir = 13
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+KernelCleaner.sys = 1,,
+
+[Manufacturer]
+%ManufacturerName% = Standard,NT$ARCH$.10.0...19041
+
+[Standard.NT$ARCH$.10.0...19041]
+%KernelCleaner.DeviceDesc% = KernelCleaner_Device, Root\KernelCleaner
+
+[KernelCleaner_Device.NT]
+CopyFiles = File_Copy
+
+[File_Copy]
+KernelCleaner.sys
+
+[KernelCleaner_Device.NT.Services]
+AddService = KernelCleaner,%SPSVCINST_ASSOCSERVICE%, KernelCleaner_Service_Inst
+
+[KernelCleaner_Service_Inst]
+DisplayName    = %KernelCleaner.SVCDESC%
+ServiceType    = 1
+StartType      = 3
+ErrorControl   = 1
+ServiceBinary  = %13%\KernelCleaner.sys
+
+[KernelCleaner_Device.NT.Wdf]
+KmdfService = KernelCleaner, KernelCleaner_wdfsect
+
+[KernelCleaner_wdfsect]
+KmdfLibraryVersion = 1.15
+
+[Strings]
+SPSVCINST_ASSOCSERVICE = 0x00000002
+ManufacturerName = "Security Research"
+DiskName = "Kernel Driver Cleaner Installation Disk"
+KernelCleaner.DeviceDesc = "Kernel Driver Cleaner Device"
+KernelCleaner.SVCDESC = "Kernel Driver Cleaner Service"
